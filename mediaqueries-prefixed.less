@@ -1,0 +1,80 @@
+// ===============================================================
+//
+// Name:           Media Queries Library (Less)
+// Description:    A set of simple mixins to control the display of the site.
+// Version:        1.0.0
+//
+// Author:         Denis Malinochkin
+// Git:            https://github.com/mrmlnc/less-mediaqueries-mixins
+//
+// twitter:        @mrmlnc
+//
+// ===============================================================
+
+
+// Width Screen
+// ---------------------------------------------------------------
+.mq-min-screen(@resolution, @ruleset) {
+  @media only screen and (min-width: @resolution) {
+    @ruleset();
+  }
+}
+.mq-max-screen(@resolution, @ruleset) {
+  @media only screen and (max-width: (@resolution - 1)) {
+    @ruleset();
+  }
+}
+
+.mq-screen(@resolutionMin, @resolutionMax, @ruleset) {
+  @media only screen and (min-width: @resolutionMin) and (max-width: (@resolutionMax - 1)) {
+    @ruleset();
+  }
+}
+
+
+// Hight Screen
+// ---------------------------------------------------------------
+.mq-min-screen-height(@resolution, @ruleset) {
+  @media only screen and (min-height: @resolution) {
+    @ruleset();
+  }
+}
+.mq-max-screen-height(@resolution, @ruleset) {
+  @media only screen and (max-height: (@resolution - 1)) {
+    @ruleset();
+  }
+}
+
+.mq-screen-height(@resolutionMin, @resolutionMax, @ruleset) {
+  @media only screen and (min-height: @resolutionMin) and (max-height: (@resolutionMax - 1)) {
+    @ruleset();
+  }
+}
+
+
+// Orientation
+// ---------------------------------------------------------------
+.mq-landscape(@ruleset) {
+  @media only screen and (orientation: landscape) {
+    @ruleset();
+  }
+}
+
+.mq-portrait(@ruleset) {
+  @media only screen and (orientation: portrait) {
+    @ruleset();
+  }
+}
+
+
+// HiDPI
+// ---------------------------------------------------------------
+.mq-hdpi(@ratio, @ruleset) {
+  @media only screen and (-webkit-min-device-pixel-ratio: @ratio),
+  only screen and (min--moz-device-pixel-ratio: @ratio),
+  only screen and (-o-min-device-pixel-ratio: @ratio/1),
+  only screen and (min-resolution: (round(@ratio * 96dpi))),
+  only screen and (min-resolution: (@ratio * 1dppx)) {
+    @ruleset();
+  }
+}
