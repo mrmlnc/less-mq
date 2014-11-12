@@ -21,79 +21,100 @@ Just import the file, whitch includes less mixins in your project.
 
 **The build mixin name:**
 
-`@(prefix)-(min|max)-screen-(height)`
+`@(prefix)-(min|max)-(screen)-(height)`
 
   - **@** - Sign of the variable in the preprocessor.
   - **(prefix)** - The prefix [mq-] mixins. Namespace of your mixins and mixins of the library. (With `mediaqueries-prefixed` and without `mediaqueries`).
   - **(min|max)** - For example, `min-width` or `max-width`.
+  - **(screen)** - Only for set `min-width` and `max-width`.
   - **(height)** - Relevant only for `min-height` or `max-height`.
 
 
 **Full list mixins**
 
 ````Less
-  // Width Screen
-  .min-screen(@resolution, @ruleset);
-  .max-screen(@resolution, @ruleset);
-  .screen(@resolutionMin, @resolutionMax, @ruleset);
+// Width Screen
+.min(@resolution, @ruleset);
+.max(@resolution, @ruleset);
+.screen(@resolutionMin, @resolutionMax, @ruleset);
 
-  //Hight Screen
-  .min-screen-height(@resolution, @ruleset);
-  .max-screen-height(@resolution, @ruleset);
-  .screen-height(@resolutionMin, @resolutionMax, @ruleset);
+//Hight Screen
+.min-height(@resolution, @ruleset);
+.max-height(@resolution, @ruleset);
+.screen-height(@resolutionMin, @resolutionMax, @ruleset);
 
-  // Orientation
-  .landscape(@ruleset);
-  .portrait(@ruleset);
+// Orientation
+.landscape(@ruleset);
+.portrait(@ruleset);
 
-  // HiDPI
-  .hdpi(@ratio, @ruleset);
+// HiDPI
+.hdpi(@ratio, @ruleset);
+
+// Print
+.print(@ruleset);
 ````
 
 **Example:**
 
 ````Less
-  @import "library/mediaqueries";
+@import "library/mediaqueries";
 
-  // min-width
-  .example-1 {
-    .min-screen(768px, {
-      width: 750px;
-    });
-  }
+// min-width
+.area {
+  .min(768px, {
+    width: 750px;
+  });
+}
 
-  // min-width and max-width
-  .example-2 {
-    .screen(768px, 1200px, {
-      background-color: red;
-    });
-  }
+// min-width and max-width
+.area-article {
+  .screen(768px, 1200px, {
+    background-color: red;
+  });
+}
 
-  // max-height
-  .example-3 {
-    .max-screen-height(768px, {
-      background-color: blue;
-    });
-  }
+// max-height
+.box {
+  .max-height(768px, {
+    background-color: blue;
+  });
+}
 ````
 
 **Additional mixins**
 
 ````Less
-  // Screen orientation (`.landscape` or `.portrait`)
-  .example-4 {
-    .landscape({
-      background-color: gray;
-    });
-  }
+// Screen orientation (`.landscape` or `.portrait`)
+.promo {
+  .landscape({
+    background-size: 80% auto;
+  });
+}
 
-  // The ratio of the number of dots per inch
-  .example-5 {
-    .hdpi(1.5, {
-      background-color: green;
-    });
-  }
+// The ratio of the number of dots per inch
+.brand {
+  .hdpi(1.5, {
+    background: url('images/brand@2x.png') no-repeat top left / 200px 200px;
+  });
+}
+
+// The ratio of the number of dots per inch
+.ad {
+  .print({
+    display: none;
+  });
+}
 ````
+
+Changelog
+--------------
+* **v2.0.0** (2014-11-13)
+  - The names of the mixins are shorter.
+  - Added support for `print`.
+  - Tidy documentation and code.
+
+* **v1.0.0** (2014-11-10)
+  - Released to the wild.
 
 License
 --------------

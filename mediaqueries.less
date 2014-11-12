@@ -2,7 +2,7 @@
 //
 // Name:           Media Queries Library (Less)
 // Description:    A set of simple mixins to control the display of the site.
-// Version:        1.0.0
+// Version:        2.0.0
 //
 // Author:         Denis Malinochkin
 // Git:            https://github.com/mrmlnc/less-mediaqueries-mixins
@@ -14,19 +14,19 @@
 
 // Width Screen
 // ---------------------------------------------------------------
-.min-screen(@resolution, @ruleset) {
-  @media only screen and (min-width: @resolution) {
+.min(@resolution, @ruleset) {
+  @media (min-width: @resolution) {
     @ruleset();
   }
 }
-.max-screen(@resolution, @ruleset) {
-  @media only screen and (max-width: (@resolution - 1)) {
+.max(@resolution, @ruleset) {
+  @media (max-width: (@resolution - 1)) {
     @ruleset();
   }
 }
 
 .screen(@resolutionMin, @resolutionMax, @ruleset) {
-  @media only screen and (min-width: @resolutionMin) and (max-width: (@resolutionMax - 1)) {
+  @media (min-width: @resolutionMin) and (max-width: (@resolutionMax - 1)) {
     @ruleset();
   }
 }
@@ -34,19 +34,19 @@
 
 // Hight Screen
 // ---------------------------------------------------------------
-.min-screen-height(@resolution, @ruleset) {
-  @media only screen and (min-height: @resolution) {
+.min-height(@resolution, @ruleset) {
+  @media (min-height: @resolution) {
     @ruleset();
   }
 }
-.max-screen-height(@resolution, @ruleset) {
-  @media only screen and (max-height: (@resolution - 1)) {
+.max-height(@resolution, @ruleset) {
+  @media (max-height: (@resolution - 1)) {
     @ruleset();
   }
 }
 
 .screen-height(@resolutionMin, @resolutionMax, @ruleset) {
-  @media only screen and (min-height: @resolutionMin) and (max-height: (@resolutionMax - 1)) {
+  @media (min-height: @resolutionMin) and (max-height: (@resolutionMax - 1)) {
     @ruleset();
   }
 }
@@ -55,13 +55,13 @@
 // Orientation
 // ---------------------------------------------------------------
 .landscape(@ruleset) {
-  @media only screen and (orientation: landscape) {
+  @media (orientation: landscape) {
     @ruleset();
   }
 }
 
 .portrait(@ruleset) {
-  @media only screen and (orientation: portrait) {
+  @media (orientation: portrait) {
     @ruleset();
   }
 }
@@ -71,10 +71,19 @@
 // ---------------------------------------------------------------
 .hdpi(@ratio, @ruleset) {
   @media only screen and (-webkit-min-device-pixel-ratio: @ratio),
-  only screen and (min--moz-device-pixel-ratio: @ratio),
-  only screen and (-o-min-device-pixel-ratio: @ratio/1),
-  only screen and (min-resolution: (round(@ratio * 96dpi))),
-  only screen and (min-resolution: (@ratio * 1dppx)) {
+  only screen and (          min--moz-device-pixel-ratio: @ratio),
+  only screen and (            -o-min-device-pixel-ratio: @ratio/1),
+  only screen and (                       min-resolution: (round(@ratio * 96dpi))),
+  only screen and (                       min-resolution: (@ratio * 1dppx)) {
+    @ruleset();
+  }
+}
+
+
+// Print
+// ---------------------------------------------------------------
+.print(@ruleset) {
+  @media print {
     @ruleset();
   }
 }
