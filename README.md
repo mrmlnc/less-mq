@@ -1,7 +1,7 @@
 Media Queries Library (Less)
 ==============
 
-A set of simple mixins to control the display of the site.
+A Less mixin that helps manipulating media queries.
 
 Support
 --------------
@@ -26,6 +26,11 @@ Just import the file, whitch includes less mixins in your project.
   @import "library/mq";
   // or
   @import "library/mq-prefixed";
+````
+
+If you use Bower, the path would be:
+````
+  bower_components/less-mq/..
 ````
 
 **The build mixin name:**
@@ -65,7 +70,7 @@ Just import the file, whitch includes less mixins in your project.
 **Example:**
 
 ````Less
-@import "library/mediaqueries";
+@import "library/mq";
 
 // min-width
 .area {
@@ -116,6 +121,7 @@ Just import the file, whitch includes less mixins in your project.
 
 Changelog
 --------------
+
 * **v2.0.0** (2014-11-13)
   - The names of the mixins are shorter.
   - Added support for `print`.
@@ -123,8 +129,3 @@ Changelog
 
 * **v1.0.0** (2014-11-10)
   - Released to the wild.
-
-License
---------------
-
-MIT.
