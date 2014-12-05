@@ -1,0 +1,22 @@
+{
+  "name": "less-mq",
+  "version": "2.0.0",
+  "authors": [
+    "Denis Malinochkin <dmalinochkin@land.ru>"
+  ],
+  "description": "A Less mixin that helps manipulating media queries",
+  "main": "mq.less",
+  "keywords": [
+    "responsive",
+    "rwd",
+    "media",
+    "query",
+    "queries",
+    "mediaquery",
+    "mediaqueries",
+    "less",
+    "mixin"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mrmlnc/less-mq"
+}

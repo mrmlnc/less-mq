@@ -1,11 +1,11 @@
 // ===============================================================
 //
 // Name:           Media Queries Library (Less)
-// Description:    A set of simple mixins to control the display of the site.
+// Description:    A Less mixin that helps manipulating media queries.
 // Version:        2.0.0
 //
 // Author:         Denis Malinochkin
-// Git:            https://github.com/mrmlnc/less-mediaqueries-mixins
+// Git:            https://github.com/mrmlnc/less-mq
 //
 // twitter:        @mrmlnc
 //
@@ -14,18 +14,19 @@
 
 // Width Screen
 // ---------------------------------------------------------------
-.min(@resolution, @ruleset) {
+.mq-min(@resolution, @ruleset) {
   @media (min-width: @resolution) {
     @ruleset();
   }
 }
-.max(@resolution, @ruleset) {
+
+.mq-max(@resolution, @ruleset) {
   @media (max-width: (@resolution - 1)) {
     @ruleset();
   }
 }
 
-.screen(@resolutionMin, @resolutionMax, @ruleset) {
+.mq-screen(@resolutionMin, @resolutionMax, @ruleset) {
   @media (min-width: @resolutionMin) and (max-width: (@resolutionMax - 1)) {
     @ruleset();
   }
@@ -34,18 +35,19 @@
 
 // Hight Screen
 // ---------------------------------------------------------------
-.min-height(@resolution, @ruleset) {
+.mq-min-height(@resolution, @ruleset) {
   @media (min-height: @resolution) {
     @ruleset();
   }
 }
-.max-height(@resolution, @ruleset) {
+
+.mq-max-height(@resolution, @ruleset) {
   @media (max-height: (@resolution - 1)) {
     @ruleset();
   }
 }
 
-.screen-height(@resolutionMin, @resolutionMax, @ruleset) {
+.mq-screen-height(@resolutionMin, @resolutionMax, @ruleset) {
   @media (min-height: @resolutionMin) and (max-height: (@resolutionMax - 1)) {
     @ruleset();
   }
@@ -54,13 +56,13 @@
 
 // Orientation
 // ---------------------------------------------------------------
-.landscape(@ruleset) {
+.mq-landscape(@ruleset) {
   @media (orientation: landscape) {
     @ruleset();
   }
 }
 
-.portrait(@ruleset) {
+.mq-portrait(@ruleset) {
   @media (orientation: portrait) {
     @ruleset();
   }
@@ -69,7 +71,7 @@
 
 // HiDPI
 // ---------------------------------------------------------------
-.hdpi(@ratio, @ruleset) {
+.mq-hdpi(@ratio, @ruleset) {
   @media only screen and (-webkit-min-device-pixel-ratio: @ratio),
   only screen and (          min--moz-device-pixel-ratio: @ratio),
   only screen and (            -o-min-device-pixel-ratio: @ratio/1),
@@ -82,7 +84,7 @@
 
 // Print
 // ---------------------------------------------------------------
-.print(@ruleset) {
+.mq-print(@ruleset) {
   @media print {
     @ruleset();
   }

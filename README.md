@@ -8,6 +8,13 @@ Support
 
 Support css preprocessors: [Less](http://lesscss.org/).
 
+Installation
+--------------
+
+ * Download the files you need from the this repository;
+ * Bower: `$ bower install less-mq --save`;
+ * Git: `$ git clone git://github.com/mrmlnc/less-mq.git`;
+
 How to use
 --------------
 
@@ -16,7 +23,9 @@ Just import the file, whitch includes less mixins in your project.
 **Less:**
 
 ````Less
-  @import "library/mediaqueries";
+  @import "library/mq";
+  // or
+  @import "library/mq-prefixed";
 ````
 
 **The build mixin name:**
@@ -28,7 +37,6 @@ Just import the file, whitch includes less mixins in your project.
   - **(min|max)** - For example, `min-width` or `max-width`.
   - **(screen)** - Only for set `min-width` and `max-width`.
   - **(height)** - Relevant only for `min-height` or `max-height`.
-
 
 **Full list mixins**
 
