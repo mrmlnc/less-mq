@@ -119,6 +119,50 @@ If you use Bower, the path would be:
 }
 ````
 
+Emmet snippet
+--------------
+
+Go to **Preferens** → **Package Settings** → **Emmet* → **Settings – User**, and add this lines:
+
+````
+{
+	"snippets": {
+		"less": {
+			"abbreviations": {
+				// Width Screen
+				"mqmin": ".min(${1}, {\n${0}\n});",
+				"mqmax": ".max(${1}, {\n${0}\n});",
+				"mqscr": ".screen(${1}, ${2}, {\n${0}\n});",
+				// Hight Screen
+				"mqminh": ".min-height(${1}, {\n${0}\n});",
+				"mqmaxh": ".max-height(${1}, {\n${0}\n});",
+				"mqscrh": ".screen-height(${1}, ${2}, {\n${0}\n});",
+				// Orientation
+				"mqland": ".landscape({\n${0}\n});",
+				"mqport": ".portrait({\n${0}\n});",
+				// HiDPI
+				"mqhdpi": ".hdpi(${1:1.5}, {\n${0}\n});",
+				// Print
+				"mqprint": ".print({\n${0}\n});"
+			}
+		}
+	}
+}
+````
+
+**How to use:**
+
+````
+line: mqmin
+--
+button: tab
+--
+snippet:
+.min(, {
+
+});
+````
+
 Changelog
 --------------
 
