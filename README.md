@@ -122,7 +122,7 @@ If you use Bower, the path would be:
 Emmet snippet
 --------------
 
-Go to **Preferens** → **Package Settings** → **Emmet* → **Settings – User**, and add this lines:
+Go to **Preferens** → **Package Settings** → **Emmet** → **Settings – User**, and add this lines:
 
 ````
 {
