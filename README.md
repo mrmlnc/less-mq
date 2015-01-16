@@ -8,6 +8,10 @@ Support
 
 Support css preprocessors: [Less](http://lesscss.org/).
 
+**Attention!**
+
+If you use CSScomb, then use this plugin is not recommended, due to the incompatibility of the syntax. CSScomb will give an error.
+
 Installation
 --------------
 
