@@ -1,61 +1,60 @@
-// ===============================================================
 //
 // Name:           Media Queries Library (Less)
-// Description:    A Less mixin that helps manipulating media queries.
-// Version:        2.0.0
+// Description:    Really simple media queries in Less.
+// Version:        2.2.1
 //
 // Author:         Denis Malinochkin
 // Git:            https://github.com/mrmlnc/less-mq
 //
 // twitter:        @mrmlnc
 //
-// ===============================================================
+// ------------------------------------
 
 
 // Width Screen
-// ---------------------------------------------------------------
-.min(@resolution, @ruleset) {
-  @media (min-width: @resolution) {
+// ------------------------------------
+.min(@min, @ruleset) {
+  @media (min-width: @min) {
     @ruleset();
   }
 }
 
-.max(@resolution, @ruleset) {
-  @media (max-width: (@resolution - 1)) {
+.max(@max, @ruleset) {
+  @media (max-width: (@max - 1)) {
     @ruleset();
   }
 }
 
-.screen(@resolutionMin, @resolutionMax, @ruleset) {
-  @media (min-width: @resolutionMin) and (max-width: (@resolutionMax - 1)) {
+.screen(@min, @max, @ruleset) {
+  @media (min-width: @min) and (max-width: (@max - 1)) {
     @ruleset();
   }
 }
 
 
-// Hight Screen
-// ---------------------------------------------------------------
-.min-height(@resolution, @ruleset) {
-  @media (min-height: @resolution) {
+// Height
+// ------------------------------------
+.min-height(@min, @ruleset) {
+  @media (min-height: @min) {
     @ruleset();
   }
 }
 
-.max-height(@resolution, @ruleset) {
-  @media (max-height: (@resolution - 1)) {
+.max-height(@max, @ruleset) {
+  @media (max-height: (@max - 1)) {
     @ruleset();
   }
 }
 
-.screen-height(@resolutionMin, @resolutionMax, @ruleset) {
-  @media (min-height: @resolutionMin) and (max-height: (@resolutionMax - 1)) {
+.screen-height(@min, @max, @ruleset) {
+  @media (min-height: @min) and (max-height: (@max - 1)) {
     @ruleset();
   }
 }
 
 
 // Orientation
-// ---------------------------------------------------------------
+// ------------------------------------
 .landscape(@ruleset) {
   @media (orientation: landscape) {
     @ruleset();
@@ -69,21 +68,41 @@
 }
 
 
-// HiDPI
-// ---------------------------------------------------------------
-.hdpi(@ratio, @ruleset) {
-  @media only screen and (-webkit-min-device-pixel-ratio: @ratio),
-  only screen and (          min--moz-device-pixel-ratio: @ratio),
-  only screen and (            -o-min-device-pixel-ratio: @ratio/1),
-  only screen and (                       min-resolution: (round(@ratio * 96dpi))),
-  only screen and (                       min-resolution: (@ratio * 1dppx)) {
-    @ruleset();
+// HiDPI (Alias: ratio and retina)
+// ------------------------------------
+.hdpi(@ratio: 1.5, @ruleset: default) {
+  & when (isnumber(@ratio)) {
+    @media only screen and (-webkit-min-device-pixel-ratio: @ratio),
+    only screen and (          min--moz-device-pixel-ratio: @ratio),
+    only screen and (            -o-min-device-pixel-ratio: @ratio/1),
+    only screen and (                       min-resolution: (round(@ratio * 96dpi))),
+    only screen and (                       min-resolution: (@ratio * 1dppx)) {
+      @ruleset();
+    }
   }
+
+  & when not (isnumber(@ratio)) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (          min--moz-device-pixel-ratio: 1.5),
+    only screen and (            -o-min-device-pixel-ratio: 1.5/1),
+    only screen and (                       min-resolution: (round(1.5 * 96dpi))),
+    only screen and (                       min-resolution: (1.5 * 1dppx)) {
+      @ratio();
+    }
+  }
+}
+
+.ratio(@ratio, @ruleset: default) {
+  .hdpi(@ratio, @ruleset);
+}
+
+.retina(@ratio, @ruleset: default) {
+  .hdpi(@ratio, @ruleset);
 }
 
 
 // Print
-// ---------------------------------------------------------------
+// ------------------------------------
 .print(@ruleset) {
   @media print {
     @ruleset();

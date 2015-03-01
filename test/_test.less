@@ -1,0 +1,130 @@
+//
+// Test:           mq.less
+// Version:        2.2.1
+//
+// ------------------------------------
+
+@import "../mq";
+
+
+/*
+ * Width
+ * ------------------------------------
+ */
+.test-width-min {
+  .min(768px, {
+    width: 750px;
+  });
+}
+
+.test-width-max {
+  .max(992px, {
+    background-color: red;
+  });
+}
+
+.test-width-screen {
+  .screen(540px, 1140px, {
+    color: #333;
+  });
+}
+
+
+/*
+ * Height
+ * ------------------------------------
+ */
+.test-height-min {
+  .min-height(768px, {
+    width: 750px;
+  });
+}
+
+.test-height-max {
+  .max-height(992px, {
+    background-color: blue;
+  });
+}
+
+.test-height-screen {
+  .screen-height(540px, 1140px, {
+    color: #333;
+  });
+}
+
+
+/*
+ * Orientation
+ * ------------------------------------
+ */
+.test-orientation-landscape {
+  .landscape({
+    background-color: yellow;
+  });
+}
+
+.test-orientation-portrait {
+  .portrait({
+    background-color: green;
+  });
+}
+
+
+/*
+ * HiDPI (Alias: ratio and retina)
+ * ------------------------------------
+ */
+.test-hidpi {
+  &-full {
+    .hdpi(2, {
+      background-color: antiquewhite;
+    });
+  }
+
+  &-ruleset {
+    .hdpi({
+      background-color: rosybrown;
+    });
+  }
+}
+
+.test-ratio {
+  &-full {
+    .ratio(1.7, {
+      background-color: coral;
+    });
+  }
+
+  &-ruleset {
+    .ratio({
+      background-color: darkgray;
+    });
+  }
+}
+
+.test-retina {
+  &-full {
+    .retina(1.3, {
+      background-color: azure;
+    });
+  }
+
+  &-ruleset {
+    .retina({
+      background-color: darkred;
+    });
+  }
+}
+
+
+/*
+ * Print
+ * ------------------------------------
+ */
+.test-print {
+  .print({
+    h1 {
+      color: #000;
+    }
+  });
+}

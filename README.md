@@ -1,16 +1,16 @@
 Media Queries Library (Less)
 ==============
 
-A Less mixin that helps manipulating media queries.
+Really simple media queries in Less.
 
 Support
 --------------
 
-Support css preprocessors: [Less](http://lesscss.org/).
+Support CSS preprocessors: [Less](http://lesscss.org/).
 
-**Attention!**
-
-If you use CSScomb, then use this plugin is not recommended, due to the incompatibility of the syntax. CSScomb will give an error.
+> **Attention!**
+> 
+> If you use CSScomb, then use this plugin is not recommended, due to the incompatibility of the syntax. CSScomb will give an error.
 
 Installation
 --------------
@@ -22,7 +22,7 @@ Installation
 How to use
 --------------
 
-Just import the file, whitch includes less mixins in your project.
+Just import the file, which includes less mixins in your project.
 
 **Less:**
 
@@ -51,14 +51,14 @@ If you use Bower, the path would be:
 
 ````Less
 // Width Screen
-.min(@resolution, @ruleset);
-.max(@resolution, @ruleset);
-.screen(@resolutionMin, @resolutionMax, @ruleset);
+.min(@min, @ruleset);
+.max(@max, @ruleset);
+.screen(@min, @max, @ruleset);
 
 //Hight Screen
-.min-height(@resolution, @ruleset);
-.max-height(@resolution, @ruleset);
-.screen-height(@resolutionMin, @resolutionMax, @ruleset);
+.min-height(@min, @ruleset);
+.max-height(@max, @ruleset);
+.screen-height(@min, @max, @ruleset);
 
 // Orientation
 .landscape(@ruleset);
@@ -66,6 +66,8 @@ If you use Bower, the path would be:
 
 // HiDPI
 .hdpi(@ratio, @ruleset);
+.ratio(@ratio, @ruleset);
+.retina(@ratio, @ruleset);
 
 // Print
 .print(@ruleset);
@@ -108,9 +110,14 @@ If you use Bower, the path would be:
   });
 }
 
-// The ratio of the number of dots per inch
+// The ratio of the number of dots per inch (default: 1.5)
 .brand {
   .hdpi(1.5, {
+    background: url('images/brand@2x.png') no-repeat top left / 200px 200px;
+  });
+  
+  // or
+  .hdpi({
     background: url('images/brand@2x.png') no-repeat top left / 200px 200px;
   });
 }
@@ -166,14 +173,3 @@ snippet:
 
 });
 ````
-
-Changelog
---------------
-
-* **v2.0.0** (2014-11-13)
-  - The names of the mixins are shorter.
-  - Added support for `print`.
-  - Tidy documentation and code.
-
-* **v1.0.0** (2014-11-10)
-  - Released to the wild.

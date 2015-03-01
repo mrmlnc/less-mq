@@ -1,10 +1,10 @@
 {
   "name": "less-mq",
-  "version": "2.0.0",
+  "version": "2.2.1",
   "authors": [
-    "Denis Malinochkin <dmalinochkin@land.ru>"
+    "@mrmlnc (Denis Malinochkin)"
   ],
-  "description": "A Less mixin that helps manipulating media queries",
+  "description": "Really simple media queries in Less.",
   "main": "mq.less",
   "keywords": [
     "responsive",
