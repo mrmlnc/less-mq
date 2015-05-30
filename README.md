@@ -1,26 +1,22 @@
-Media Queries Library (Less)
-==============
+# Media Queries Library (Less)
 
 Really simple media queries in Less.
 
-Support
---------------
+
+
+
+## Support
 
 Support CSS preprocessors: [Less](http://lesscss.org/).
 
-> **Attention!**
-> 
-> If you use CSScomb, then use this plugin is not recommended, due to the incompatibility of the syntax. CSScomb will give an error.
 
-Installation
---------------
+
+
+## Installation
 
  * Download the files you need from the this repository;
  * Bower: `$ bower install less-mq --save`;
  * Git: `$ git clone git://github.com/mrmlnc/less-mq.git`;
-
-How to use
---------------
 
 Just import the file, which includes less mixins in your project.
 
@@ -37,12 +33,17 @@ If you use Bower, the path would be:
   bower_components/less-mq/..
 ````
 
+
+
+
+## How to use
+
 **The build mixin name:**
 
 `@(prefix)-(min|max)-(screen)-(height)`
 
   - **@** - Sign of the variable in the preprocessor.
-  - **(prefix)** - The prefix [mq-] mixins. Namespace of your mixins and mixins of the library. (With `mediaqueries-prefixed` and without `mediaqueries`).
+  - **(prefix)** - The prefix [mq-] mixins. Namespace of your mixins and mixins of the library. (With `mq-prefixed` and without `mq`).
   - **(min|max)** - For example, `min-width` or `max-width`.
   - **(screen)** - Only for set `min-width` and `max-width`.
   - **(height)** - Relevant only for `min-height` or `max-height`.
@@ -67,7 +68,6 @@ If you use Bower, the path would be:
 // HiDPI
 .hdpi(@ratio, @ruleset);
 .ratio(@ratio, @ruleset);
-.retina(@ratio, @ruleset);
 
 // Print
 .print(@ruleset);
@@ -130,8 +130,37 @@ If you use Bower, the path would be:
 }
 ````
 
-Emmet snippet
---------------
+
+
+
+## Autoprefixer
+
+If you are using resolution media queries (`.hdpi()` and alias), you need [Autoprefixer](https://github.com/postcss/autoprefixer) for better browser support.
+
+Without Autoprefixer:
+```css
+@media
+(min-resolution: 144dpi),
+(min-resolution: 1.5ddpx) {
+  /* You styles */
+}
+```
+
+After Autoprefixer (safari >= 7, opera >= 12):
+```css
+@media
+(-webkit-min-device-pixel-ratio: 1.5),
+(-o-min-device-pixel-ratio: 3/2),
+(min-resolution: 144dpi),
+(min-resolution: 1.5ddpx) {
+  /* You styles */
+}
+```
+
+
+
+
+## Emmet snippet
 
 Go to **Preferens** → **Package Settings** → **Emmet** → **Settings – User**, and add this lines:
 

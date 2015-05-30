@@ -1,7 +1,7 @@
 //
 // Name:           Media Queries Library (Less)
 // Description:    Really simple media queries in Less.
-// Version:        2.2.1
+// Version:        3.0.0
 //
 // Author:         Denis Malinochkin
 // Git:            https://github.com/mrmlnc/less-mq
@@ -72,31 +72,23 @@
 // ------------------------------------
 .hdpi(@ratio: 1.5, @ruleset: default) {
   & when (isnumber(@ratio)) {
-    @media only screen and (-webkit-min-device-pixel-ratio: @ratio),
-    only screen and (          min--moz-device-pixel-ratio: @ratio),
-    only screen and (            -o-min-device-pixel-ratio: @ratio/1),
-    only screen and (                       min-resolution: (round(@ratio * 96dpi))),
-    only screen and (                       min-resolution: (@ratio * 1dppx)) {
+    @media
+    only screen and (min-resolution: (round(@ratio * 96dpi))),
+    only screen and (min-resolution: (@ratio * 1dppx)) {
       @ruleset();
     }
   }
 
-  & when not (isnumber(@ratio)) {
-    @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-    only screen and (          min--moz-device-pixel-ratio: 1.5),
-    only screen and (            -o-min-device-pixel-ratio: 1.5/1),
-    only screen and (                       min-resolution: (round(1.5 * 96dpi))),
-    only screen and (                       min-resolution: (1.5 * 1dppx)) {
+  & when (isruleset(@ratio)) {
+    @media
+    only screen and ( min-resolution: 144dpi),
+    only screen and ( min-resolution: 1.5dppx) {
       @ratio();
     }
   }
 }
 
 .ratio(@ratio, @ruleset: default) {
-  .hdpi(@ratio, @ruleset);
-}
-
-.retina(@ratio, @ruleset: default) {
   .hdpi(@ratio, @ruleset);
 }
 
